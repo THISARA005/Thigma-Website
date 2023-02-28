@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* CSS styles for the Signup Page */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?w=900&t=st=1677519407~exp=1677520007~hmac=46f370ff334d17238dd2e1204c9d3668ff2249c55810961db4896516a71910ca");
+
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        #signup-message {
+            text-align: center;
+            margin-top: 20px;
+            color: red;
+        }
+
+        #btn1 {
+
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 90px;
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#signup-form").submit(function (event) {
+                event.preventDefault();
+                var username = $("#username").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var confirmPassword = $("#confirm-password").val();
+                if (password != confirmPassword) {
+                    $("#signup-message").html("Passwords do not match.");
+                    return;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "signup.php",
+                    data: { username: username, email: email, password: password },
+                    success: function (data) {
+                        if (data == "success") {
+                            window.location.href = "home.html";
+                        } else {
+                            $("#signup-message").html(data);
+                        }
+                    },
+                    error: function () {
+                        $("#signup-message").html("Error connecting to the server.");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Signup Page</h1>
+    <form id="signup-form" method="POST">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <div>
+            <button type="submit">Signup</button>
+        </div>
+        <div>
+            <button onclick="location.href='index.html';" id="btn1">Back</button>
+        </div>
+    </form>
+    <div id="signup-message"></div>
+</body>
+
+</html>

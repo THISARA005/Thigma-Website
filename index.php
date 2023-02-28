@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Home Page</title>
+    <style>
+        body {
+                background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?w=900&t=st=1677519407~exp=1677520007~hmac=46f370ff334d17238dd2e1204c9d3668ff2249c55810961db4896516a71910ca");
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat
+        }
+
+        .container {
+            margin-top: 10%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1{
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 16px;
+        }
+#btn1{
+    margin-left: 650px;
+    background-color:green;
+    padding:10px;
+    border-radius:10px;
+    width:100px;
+
+}
+#btn2{
+    background-color:green;
+    padding:10px;
+    border-radius:10px;
+    width:100px;
+}
+
+        .btn-primary {
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #286090;
+        }
+
+        #login-message {
+            margin-top: 20px;
+            color: #f00;
+            text-align: center;
+        }
+        #p1{
+            margin-left: 600px;
+        font-size:20px;
+        color:white;
+        }
+        #div1{
+            
+            margin-top: 250px;
+            border-radius:10px;
+            border-color:black;
+            ;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+    <h1>Welcome to our website!</h1>
+    <p name="login-message" id="p1">Please login or sign up to continue.</p>
+    <input type="button" value="Login" id="btn1" onclick="location.href='login.html';">
+    <input type="button" value="Signup" id="btn2" onclick="location.href='signup.html';">
+    </div>
+    
+</body>
+
+</html>
